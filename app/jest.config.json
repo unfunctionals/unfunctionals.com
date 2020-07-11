@@ -1,0 +1,26 @@
+{
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js"
+  ],
+  "moduleNameMapper": {
+    "^src(.*)$": "<rootDir>/src/$1"
+  },
+  "transform": {
+    "^.+\\.ts?(x)$": "ts-jest"
+  },
+  "globals": {
+    "ts-jest": {
+      "tsConfig": "./tests/tsconfig.jest.json"
+    }
+  },
+  "testMatch": [
+    "**/tests/**/*.test.[jt]s?(x)"
+  ],
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    ".next"
+  ]
+}
+
