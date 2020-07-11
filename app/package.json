@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "test": "jest --config jest.config.json",
     "build": "next build",
     "export": "next export",
     "start": "next start"
@@ -14,8 +15,13 @@
     "react-dom": "16.13.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^10.4.5",
+    "@types/jest": "^26.0.4",
     "@types/node": "^14.0.22",
     "@types/react": "^16.9.42",
+    "jest": "^26.1.0",
+    "ts-jest": "^26.1.1",
     "typescript": "^3.9.6"
   }
 }
