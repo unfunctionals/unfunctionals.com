@@ -1,3 +1,2 @@
 # unfunctionals.com
-
-機能しない者たち
+- 機能しない者たち
