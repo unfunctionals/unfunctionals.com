@@ -1,20 +1,13 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+name: Test
 
-name: Node.js CI
-
-on:
-  push:
-    branches: [master]
+on: [push]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [12.x]
-
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -27,21 +20,10 @@ jobs:
         run: yarn install
         working-directory: ./app
 
-      # Build
-      - name: build
+      # Build test
+      - name: build-test
         run: yarn build
         working-directory: ./app
-      - name: export
-        run: yarn export
-        working-directory: ./app
-
-      # Deploy
-      - name: deploy to Firebase Hosting
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       # Slack
       - uses: 8398a7/action-slack@v3
@@ -51,3 +33,4 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
+
