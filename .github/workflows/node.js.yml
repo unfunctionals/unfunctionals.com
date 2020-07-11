@@ -16,16 +16,24 @@ jobs:
         node-version: [12.x]
 
     steps:
-      # Install
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      #    - name: npm install
-      #      run: |
-      #           npm install
-      #           npm run generate --if-present
+
+      # Install
+      - name: install
+        run: yarn install
+        working-directory: ./app
+
+      # Build
+      - name: build
+        run: yarn build
+        working-directory: ./app
+      - name: export
+        run: yarn export
+        working-directory: ./app
 
       # Deploy
       - name: deploy to Firebase Hosting
