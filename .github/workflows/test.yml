@@ -20,6 +20,11 @@ jobs:
         run: yarn install
         working-directory: ./app
 
+      # App test
+      - name: app-test
+        run: yarn test
+        working-directory: ./app
+
       # Build test
       - name: build-test
         run: yarn build
