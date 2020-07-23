@@ -9,7 +9,7 @@ afterEach(cleanup)
 describe('Home', () => {
   it('sample test', () => {
     const { getByText } = render(<Home />)
-    expect(getByText('Welcome to')).toBeInTheDocument()
+    expect(getByText('unfunctionals...')).toBeInTheDocument()
   })
 })
 
